@@ -1,0 +1,46 @@
+# Configuration files for path planning algorithms
+
+# A* Algorithm Configuration
+algorithm: "a_star"
+heuristic: "euclidean"  # euclidean, manhattan, diagonal
+allow_diagonal: true
+smoothing: true
+
+# RRT* Algorithm Configuration  
+algorithm: "rrt_star"
+max_iterations: 1000
+step_size: 1.0
+goal_threshold: 1.0
+rewire_radius: 2.0
+goal_sample_rate: 0.1
+
+# Dijkstra Algorithm Configuration
+algorithm: "dijkstra"
+allow_diagonal: true
+smoothing: true
+
+# Environment Configuration
+environment:
+  type: "grid"
+  height: 20
+  width: 20
+  obstacle_ratio: 0.2
+  seed: 42
+
+# Evaluation Configuration
+evaluation:
+  trials: 100
+  metrics:
+    - "success_rate"
+    - "path_length"
+    - "computation_time"
+    - "nodes_expanded"
+    - "clearance"
+    - "smoothness"
+
+# Visualization Configuration
+visualization:
+  save_plots: true
+  plot_format: "png"
+  dpi: 300
+  figure_size: [10, 8]
